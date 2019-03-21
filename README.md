@@ -3,6 +3,7 @@ by oMarkez <3
 
 # INFO
 [EN] This script makes it possible for players to cuff other players, with a useable item. 
+
 [DK] Dette scriot gøre det muligt for spillere at sætte hinanden i strips
 
 # INSTALLATION
