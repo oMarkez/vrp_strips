@@ -32,21 +32,15 @@ vRP.registerMenuBuilder({"main", function(add, data)
             menu[config.titler.funktiontitel] = {function(player,choice)
                 vRPclient.getNearestPlayer(player,{5},function(nplayer)
                     if nplayer ~= nil then
-                        if playerstrips[nplayer] == nil then
+                        if playerstrips[nplayer] == nil or playerstrips[nplayer].status == "off" then
                             if vRP.tryGetInventoryItem({user_id,config.itemname,1,true}) then
                                 vRPclient.toggleHandcuff(nplayer,{})
-                                vRPclient.notify(player,{"Du har puttet strips på den nærmeste spiler!"})
-                                playerstrips[nplayer] = {status = "on"}
-                            end
-                        elseif playerstrips[nplayer].status == "off" then
-                            if vRP.tryGetInventoryItem({user_id,config.itemname,1,true}) then
-                                vRPclient.toggleHandcuff(nplayer,{})
-                                vRPclient.notify(player,{"Du har puttet strips på den nærmeste spiler!"})
+                                vRPclient.notify(player,{"Du har puttet strips på den nærmeste spiller!"})
                                 playerstrips[nplayer] = {status = "on"}
                             end
                         elseif playerstrips[nplayer].status == "on" then
                             vRPclient.toggleHandcuff(nplayer,{})
-                            vRPclient.notify(player,{"Du har taget strips af den nærmeste spiler!"})
+                            vRPclient.notify(player,{"Du har taget strips af den nærmeste spiller!"})
                             playerstrips[nplayer] = {status = "off"}
                         end
                     end
